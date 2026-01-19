@@ -2,7 +2,7 @@ name: Flights schedule
 
 on:
   schedule:
-  - cron: "*/5 * * * *"
+  - cron: "* * * * *"
 
   workflow_dispatch:
 
