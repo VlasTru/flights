@@ -23,7 +23,7 @@ jobs:
       uses: r-lib/actions/setup-r-dependencies@v2
 
     - name: Run App
-      run: Rscript -e 'source("app.R")' 
+      run: Rscript -e 'source("flights/blob/main/app.R")' 
     
     - name: Check out repository
       uses: actions/checkout@v3
