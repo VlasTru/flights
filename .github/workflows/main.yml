@@ -2,45 +2,43 @@ name: Flights schedule
 
 on:
   schedule:
-    cron: "*/5 * * * *"
+  - cron: "*/5 * * * *"
 
 jobs: 
   build:
     runs-on: ubuntu-latest
-
-steps:
-  - name: Set timezone
-    uses: szenius/set-timezone@v1.0
-    with: 
+    steps:
+    - name: Set timezone
+      uses: szenius/set-timezone@v1.0
+      with: 
       timezoneLinux: "Asia/Yerevan"
       
-  - name: Set up R
-    uses: r-lib/actions/setup-r@v2
+    - name: Set up R
+      uses: r-lib/actions/setup-r@v2
+      
+    - name: setup R version
+      uses: r-lib/actions/setup-r@v2
+      with:
+        r-version: '4.5.2'
+        
+    - name: Install packages
+      uses: r-lib/actions/setup-r-dependencies@v2
+      with:
+        packages:
+          any::shiny
+          any::dplyr
+          any::DBI
+          any::duckdb
+          any:DT
 
-  - name: setup R version
-    uses: r-lib/actions/setup-r@v2
-    with:
-      r-version: '4.5.2'
-
-  - name: Install packages
-    uses: r-lib/actions/setup-r-dependencies@v2
-    with:
-      packages:
-        any::shiny
-        any::dplyr
-        any::DBI
-        any::duckdb
-        any:DT
-
-  - name: Run App
-    run: Rscript -e 'source("app.R")' 
-
-  
-  - name: Check out repository
-    uses: actions/checkout@v3
+    - name: Run App
+      run: Rscript -e 'source("app.R")' 
     
-  - name: Commit results
-    run: |
+    - name: Check out repository
+      uses: actions/checkout@v3
+  
+    - name: Commit results
+      run: |
           git config --local user.email "vlastrunov@gmail.com"
           git config --local user.name "VlasTru"
           git add --all
