@@ -21,13 +21,6 @@ jobs:
         
     - name: Install packages
       uses: r-lib/actions/setup-r-dependencies@v2
-      with:
-        packages:
-          any::shiny
-          any::dplyr
-          any::DBI
-          any::duckdb
-          any:DT
 
     - name: Run App
       run: Rscript -e 'source("app.R")' 
