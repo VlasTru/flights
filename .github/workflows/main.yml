@@ -22,13 +22,9 @@ jobs:
     - name: Install packages
       uses: r-lib/actions/setup-r-dependencies@v2
 
-    - name: Debug paths and files
-      run: |
-        echo $PATH
-        ls -R
 
     - name: Run App
-      run: Rscript -e 'source('app.R', chdir = TRUE)' 
+      run: Rscript app.R 
     
     - name: Check out repository
       uses: actions/checkout@v3
