@@ -23,7 +23,7 @@ jobs:
       uses: r-lib/actions/setup-r-dependencies@v2
 
     - name: Run App
-      run: Rscript -e 'source('app.R', chdir = TRUE)' 
+      run: Rscript -e 'source('https://github.com/VlasTru/flights/blob/main/app.R', chdir = TRUE)' 
     
     - name: Check out repository
       uses: actions/checkout@v3
