@@ -2,7 +2,7 @@ name: Flights schedule
 
 on:
   schedule:
-  - cron: "* * * * *"
+  - cron: "*/10 * * * *"
 
   workflow_dispatch:
 
@@ -15,13 +15,9 @@ jobs:
       with: 
         timezoneLinux: "Asia/Yerevan"
       
-    - name: Set up R
-      uses: r-lib/actions/setup-r@v2
-      
     - name: setup R version
       uses: r-lib/actions/setup-r@v2
-      with:
-        r-version: '4.5.2'
+        
         
     - name: Install packages
       uses: r-lib/actions/setup-r-dependencies@v2
