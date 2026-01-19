@@ -11,7 +11,7 @@ jobs:
     - name: Set timezone
       uses: szenius/set-timezone@v1.0
       with: 
-      timezoneLinux: "Asia/Yerevan"
+        timezoneLinux: "Asia/Yerevan"
       
     - name: Set up R
       uses: r-lib/actions/setup-r@v2
