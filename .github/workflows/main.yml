@@ -25,10 +25,10 @@ jobs:
         cache-version: 2
         packages: |
           any::shiny
-          any::httr
+          any::httr2
           any::dplyr
           any::DBI
-          any::DT
+          any::gt
           any::duckdb
     
     - name: Check out repository
