@@ -9,9 +9,6 @@ on:
 jobs: 
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./flights
     steps:
     - name: Set timezone
       uses: szenius/set-timezone@v1.0
@@ -24,13 +21,12 @@ jobs:
         
     - name: Install packages
       uses: r-lib/actions/setup-r-dependencies@v2
-
-    - name: Run App
-      run: Rscript -e 'source("app.R")'
     
     - name: Check out repository
       uses: actions/checkout@v3
       
+    - name: Run App
+      run: Rscript -e 'source("app.R")'
   
     - name: Commit results
       run: |
