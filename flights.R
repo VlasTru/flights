@@ -1,9 +1,9 @@
 require(shiny)
-library(httr2)
-library(dplyr)
-library(DBI)
-library(duckdb)
-library(DT)
+require(httr2)
+require(dplyr)
+require(DBI)
+require(duckdb)
+require(DT)
 ui <- fluidPage(
     titlePanel("Flights yo"),
     DTOutput("table")
