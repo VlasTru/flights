@@ -24,7 +24,7 @@ jobs:
 
 
     - name: Run App
-      run: runApp('~/flights')
+      run: runApp('~/flights/app.R')
     
     - name: Check out repository
       uses: actions/checkout@v3
