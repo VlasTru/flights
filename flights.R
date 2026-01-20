@@ -1,4 +1,4 @@
-library(shiny)
+require(shiny)
 library(httr2)
 library(dplyr)
 library(DBI)
