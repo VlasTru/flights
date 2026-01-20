@@ -2,7 +2,7 @@ name: Flights schedule
 
 on:
   schedule:
-  - cron: "*/20 5 * * *"
+  - cron: "*/30 * * * *"
 
   workflow_dispatch:
 
@@ -35,7 +35,7 @@ jobs:
       uses: actions/checkout@v3
       
     - name: Run App
-      run: Rscript -e 'source("flights.R")'
+      run: Rscript -e 'source("app.R")'
   
     - name: Commit results
       run: |
