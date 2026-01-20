@@ -3,10 +3,10 @@ library(httr2)
 library(dplyr)
 library(DBI)
 library(duckdb)
-library(gt)
+library(reactable)
 ui <- fluidPage(
     titlePanel("Flights yo"),
-    gt_output("table")
+    reactableOutput("table")
 )
 
 # Define server logic required to draw a histogram
@@ -22,7 +22,7 @@ server <- function(input, output) {
       con <- dbConnect(duckdb(), dbdir = "flights.duckdb")
       dbWriteTable(con, "flights", data_to_load, append = TRUE)
       res <- dbGetQuery(con, "SELECT data.found_at, data.value, currency FROM flights order by data.found_at desc")
-      output$table <- render_gt(res)
+      output$table <- renderReactable({reactable(res)})
       dbDisconnect(con)
     
 }
