@@ -22,6 +22,8 @@ jobs:
     - name: Install packages
       uses: r-lib/actions/setup-r-dependencies@v2
 
+    - name: set up working directory
+      uses: ln -s -r app.R ~/VlasTru/flights/app.R
 
     - name: Run App
       run: Rscript -e 'source("app.R")'
