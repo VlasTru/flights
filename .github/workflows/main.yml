@@ -21,6 +21,15 @@ jobs:
         
     - name: Install packages
       uses: r-lib/actions/setup-r-dependencies@v2
+      with:
+        cache-version: 2
+        packages: |
+          any::shiny
+          any::httr
+          any::dplyr
+          any::DBI
+          any::DT
+          any::duckdb
     
     - name: Check out repository
       uses: actions/checkout@v3
