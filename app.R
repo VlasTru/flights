@@ -18,7 +18,6 @@ server <- function(input, output) {
       json <- req_perform(resp)
       resp_body_string(json)
       data_to_load <- json %>% resp_body_json(simplifyVector = TRUE) %>% as_tibble()
-      data_to_load
       con <- dbConnect(duckdb(), dbdir = "flights.duckdb")
       dbWriteTable(con, "flights", data_to_load, append = TRUE)
       res <- dbGetQuery(con, "SELECT data.found_at, data.value, currency FROM flights order by data.found_at desc")
